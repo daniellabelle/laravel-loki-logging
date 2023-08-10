@@ -34,7 +34,7 @@ class L3Logger implements HandlerInterface
      * @param array $record
      * @return bool
      */
-    public function isHandling(array $record): bool
+    public function isHandling(Monolog\LogRecord $record): bool
     {
         return true;
     }
