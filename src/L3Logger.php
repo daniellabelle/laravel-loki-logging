@@ -79,7 +79,7 @@ class L3Logger implements HandlerInterface
         fclose($this->file);
     }
 
-    private function formatString(string $format, array $context): string
+    private function formatString(string $format, LogRecord $context): string
     {
         $message = $format;
         foreach ($context as $key => $value) {
