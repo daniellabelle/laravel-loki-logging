@@ -39,7 +39,7 @@ class L3Logger implements HandlerInterface
         return true;
     }
 
-    public function handle(array $record): bool
+    public function handle(Monolog\LogRecord $record): bool
     {
         $this->hasError |= $record['level_name'] === 'ERROR';
         $message = $this->formatString($this->format, $record);
@@ -58,7 +58,7 @@ class L3Logger implements HandlerInterface
             ]) . "\n");
     }
 
-    public function handleBatch(array $records): void
+    public function handleBatch(Monolog\LogRecord $records): void
     {
         foreach ($records as $record) {
             $this->handle($record);
