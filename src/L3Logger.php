@@ -4,6 +4,7 @@ namespace Devcake\LaravelLokiLogging;
 
 
 use Monolog\Handler\HandlerInterface;
+use Monolog\LogRecord;
 
 class L3Logger implements HandlerInterface
 {
@@ -34,12 +35,12 @@ class L3Logger implements HandlerInterface
      * @param array $record
      * @return bool
      */
-    public function isHandling(Monolog\LogRecord $record): bool
+    public function isHandling(LogRecord $record): bool
     {
         return true;
     }
 
-    public function handle(Monolog\LogRecord $record): bool
+    public function handle(LogRecord $record): bool
     {
         $this->hasError |= $record['level_name'] === 'ERROR';
         $message = $this->formatString($this->format, $record);
