@@ -58,7 +58,7 @@ class L3Logger implements HandlerInterface
             ]) . "\n");
     }
 
-    public function handleBatch(Monolog\LogRecord $records): void
+    public function handleBatch(array $records): void
     {
         foreach ($records as $record) {
             $this->handle($record);
